@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup
 st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
-    page_title="AniReK",
+    page_title="AnIReK",
     page_icon=":robot_face:",
 )
 
