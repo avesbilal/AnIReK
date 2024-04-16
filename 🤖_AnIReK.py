@@ -19,22 +19,9 @@ st.set_page_config(
     page_icon=":robot_face:",
 )
 
-# Hide Streamlit Sidebar
-# st.markdown("""
-#             <style>
-#             [data-testid="stSidebar"] {
-#                 display: none
-#             }
-
-#             [data-testid="collapsedControl"] {
-#                 display: none
-#             }
-#             </style>
-#             """, unsafe_allow_html=True)
-
 selected = option_menu(
-    None, ["ReK", "About", "Model", "Contact"],
-    icons=['robot', 'info-circle', 'gear-wide-connected', 'envelope-at'],
+    None, ["ReK", "About","Contact"],
+    icons=['robot', 'info-circle','envelope-at'],
     default_index=0, 
     orientation="horizontal"
     )
@@ -46,55 +33,7 @@ with open( "style.css" ) as css:
 
 if selected == "About":
     
-    image_path = "img/About.jpg"
-    
-    with open(image_path, "rb") as f:
-        image_data = f.read()
-        encoded_image = base64.b64encode(image_data).decode()
-        
-        st.markdown(
-            f'<img class="centered-image" src="data:image/jpeg;base64,{encoded_image}" />',
-            unsafe_allow_html=True
-            )
-        
-        st.markdown('<p style="margin-top: 320px;"></p>', unsafe_allow_html=True)
-        st.markdown("""
-                    <style>
-                    
-                    body {
-                        margin: 0; 
-                        padding: 0; 
-                        overflow-x: hidden; 
-                        }
-                        
-                        .container{
-                            position: relative;
-                            }
-                            
-                            .centered-image {
-                                
-                                display: flex;
-                                flex-direction: column;
-                                object-fit: cover;
-                                border-radius: 20px;
-                                width: 100%; 
-                                height: 45vh; 
-                                opacity: 1;
-                                object-position: center 95%; 
-                                position: absolute; 
-                                top: 0; 
-                                left: 0; 
-                                z-index: 1;
-                                }
-                                
-                                .content {
-                                    padding-top: 45vh; /* Adjust this value to match the height of your image */
-                                    z-index: -1;
-                    </style>
-                        """,unsafe_allow_html=True)
-        
-        st.markdown("""
-                    ---
+    st.markdown("""
             <!--<h1 style="color: #F4447D;">Problem Statement</h1>-->
             
             :rainbow[Anime] :grey[is a form of hand-drawn or computer-generated animation originating from Japan.]
@@ -135,76 +74,6 @@ if selected == "ReK":
     st.checkbox("Google analytics", value=True)
     st.checkbox("Analytics report", value=False)
     
-# REVIEW COMPONENT DISABLED
-
-# if selected == "Review":
-    
-#     image_path = "/Users/school/AnIReK/img/Review.jpg"
-    
-#     with open(image_path, "rb") as f:
-#         image_data = f.read()
-#         encoded_image = base64.b64encode(image_data).decode()
-        
-#         st.markdown(
-#             f'<img class="centered-image" src="data:image/jpeg;base64,{encoded_image}" />',
-#             unsafe_allow_html=True
-#             )
-        
-#         st.markdown('<p style="margin-top: 200px;"></p>', unsafe_allow_html=True)
-#         st.markdown("""
-#                     <style>
-                    
-#                     body {
-#                         margin: 0; 
-#                         padding: 0; 
-#                         overflow-x: hidden; 
-#                         }
-                        
-#                         .container{
-#                             position: relative;
-#                             }
-                            
-#                             .centered-image {
-                                
-#                                 display: block;
-#                                 object-fit: cover;
-#                                 border-radius: 20px;
-#                                 width: 100%; 
-#                                 height: 25vh; 
-#                                 opacity: 1;
-#                                 object-position: center 22%; 
-#                                 position: absolute; 
-#                                 top: 0; 
-#                                 left: 0; 
-#                                 z-index: 1;
-#                                 }
-                                
-#                                 .content {
-#                                     padding-top: 45vh; /* Adjust this value to match the height of your image */
-#                                     z-index: -1;
-#                         </styl>
-#                         """,unsafe_allow_html=True)
-        
-#         st.markdown("""
-#             <h1 style="text-align: center; font-size:50px; color: #F4447D;">&nbsp;&nbsp;R A T E &nbsp; U S </h1>
-#             """, unsafe_allow_html=True)
-        
-#         with st.form(key="review_form"):
-            
-#             name = st.text_input("Name *")
-#             mail = st.text_input("Email *")
-#             msg = st.text_area("Message")
-#             st.slider("Rating", 0, 5,)
-#             st.form_submit_button("Submit")
-            
-        
-#         # Google Sheet Connection
-#         conn = st.connection("gsheets", type=GSheetsConnection)
-        
-#         # Fetch user reviews
-#         existing_data = conn.read(worksheet="Reviews", usecols=list(range(4)), ttl=5)
-#         existing_data = existing_data.dropna(how="all")
-        
 if selected == "Contact":
     
         st.header(":email: GET IN TOUCH")
